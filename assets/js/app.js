@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cart functionality
     const cartCount = document.querySelector('.badge.bg-dark');
-    let cartItems = 3; // Initial cart items
+    let cartItems = 0; // Initial cart items
     
     // Add to cart buttons
     document.querySelectorAll('.btn-outline-primary').forEach(button => {
