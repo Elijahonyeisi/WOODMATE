@@ -92,3 +92,26 @@
 .nav-pills .nav-link.active {
     background-color: var(--accent);
 }
+
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #198754;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.toast-notification.show {
+    opacity: 1;
+}
+
+.toast-notification.error {
+    background-color: #dc3545;
+}

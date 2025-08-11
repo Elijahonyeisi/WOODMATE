@@ -146,3 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 2000);
 });
+
+// Add some basic styling for the toast notifications
+const style = document.createElement('style');
+style.textContent = document.head.appendChild(style);
