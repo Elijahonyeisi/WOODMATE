@@ -102,7 +102,7 @@
     color: white;
     padding: 12px 24px;
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1000;
@@ -114,4 +114,458 @@
 
 .toast-notification.error {
     background-color: #dc3545;
+}
+
+
+body {
+    background-color: #f8f9fa;
+}
+
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.login-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-header {
+    background-color: #fd7e14;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-brand {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.login-body {
+    padding: 30px;
+    background-color: white;
+}
+
+.form-control:focus {
+    border-color: #fd7e14;
+    box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.25);
+}
+
+.btn-login {
+    background-color: #198754;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-login:hover {
+    background-color: #157347;
+    color: white;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.divider:not(:empty)::before {
+    margin-right: 1em;
+}
+
+.divider:not(:empty)::after {
+    margin-left: 1em;
+}
+
+.social-login .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-login .btn i {
+    margin-right: 10px;
+}
+
+.btn-google {
+    background-color: #dd4b39;
+    color: white;
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+    color: white;
+}
+
+.login-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+
+body {
+    background-color: #f8f9fa;
+}
+
+.cart-header {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.cart-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.cart-item-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.quantity-input {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    border-left: none;
+    border-right: none;
+}
+
+.summary-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+.btn-checkout {
+    background-color: #198754;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.btn-checkout:hover {
+    background-color: #157347;
+    color: white;
+}
+
+.material-badge {
+    background-color: #f8f9fa;
+    color: #784804;
+    font-size: 0.8rem;
+}
+
+.workshop-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(13, 110, 253, 0.9);
+}
+
+.quality-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.discount-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.discount-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.empty-cart-icon {
+    font-size: 5rem;
+    color: #fd7e14;
+    margin-bottom: 1rem;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.products-header {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.product-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.product-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.workshop-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(13, 110, 253, 0.9);
+}
+
+.quality-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.material-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.category-badge {
+    background-color: #f8f9fa;
+    color: #784804;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.category-badge.active {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.filter-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.price-range-slider {
+    width: 100%;
+}
+
+.price-values {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+}
+
+.pagination .page-link {
+    color: #784804;
+}
+
+.btn-view-all {
+    border-color: #fd7e14;
+    color: #fd7e14;
+}
+
+.btn-view-all:hover {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.sort-dropdown .dropdown-toggle::after {
+    display: none;
+}
+
+
+body {
+    background-color: #f8f9fa;
+}
+
+.workshop-header {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.workshop-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.workshop-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.workshop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.workshop-card:hover .workshop-img {
+    transform: scale(1.05);
+}
+
+.iot-badge {
+    background-color: #198754;
+    color: white;
+}
+
+.location-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.stats-badge {
+    background-color: #f8f9fa;
+    color: #784804;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.filter-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.map-container {
+    height: 300px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dee2e6;
+    color: #6c757d;
+}
+
+.progress {
+    height: 8px;
+}
+
+.progress-bar {
+    background-color: #198754;
+}
+
+.btn-view-workshop {
+    border-color: #fd7e14;
+    color: #fd7e14;
+}
+
+.btn-view-workshop:hover {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(253, 126, 20, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fd7e14;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #fd7e14;
+}
+
+.nav-pills .nav-link {
+    color: #784804;
 }

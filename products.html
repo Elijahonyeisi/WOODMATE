@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - WOODMATE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #fd7e14;">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <h5 class="mb-0">
+                    <span style="color: #198754;">WOOD</span><span style="color: #784804;"><i>MATE</i></span>
+                </h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./workshop.html">Workshops</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="./login.html" class="btn btn-outline-light me-2"><i class="fas fa-user"></i> Login</a>
+                    <a href="./carts.html" class="btn" style="background-color: #198754; color: white;">
+                        <i class="fas fa-shopping-cart"></i> Cart <span class="badge bg-dark">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="products-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="fw-bold mb-3">Our Products</h1>
+                    <p class="lead">Quality furniture crafted with precision and smart technology</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg" placeholder="Search products...">
+                        <button class="btn btn-lg" style="background-color: #198754; color: white;" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="filter-card">
+                    <h5 class="mb-4">Filter Products</h5>
+                    
+                    <div class="mb-4">
+                        <h6>Categories</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="badge category-badge active">All</span>
+                            <span class="badge category-badge">Living Room</span>
+                            <span class="badge category-badge">Bedroom</span>
+                            <span class="badge category-badge">Office</span>
+                            <span class="badge category-badge">Dining</span>
+                            <span class="badge category-badge">Outdoor</span>
+                            <span class="badge category-badge">Custom</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6>Price Range</h6>
+                        <input type="range" class="form-range price-range-slider" min="0" max="500000" step="5000" value="250000">
+                        <div class="price-values">
+                            <span>₦0</span>
+                            <span>₦500,000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6>Materials</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="mahogany" checked>
+                            <label class="form-check-label" for="mahogany">African Mahogany</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="iroko" checked>
+                            <label class="form-check-label" for="iroko">Iroko Wood</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="teak">
+                            <label class="form-check-label" for="teak">Teak Wood</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="oak">
+                            <label class="form-check-label" for="oak">Oak</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6>Workshop Location</h6>
+                        <select class="form-select">
+                            <option selected>All Locations</option>
+                            <option>Lagos</option>
+                            <option>Abuja</option>
+                            <option>Port Harcourt</option>
+                            <option>Kano</option>
+                            <option>Enugu</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary w-100">Apply Filters</button>
+                </div>
+                
+                <div class="filter-card mt-4">
+                    <h5 class="mb-3">Quality Assurance</h5>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                            <i class="fas fa-check-circle text-success"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">IoT Certified</h6>
+                            <small class="text-muted">Smart production monitoring</small>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                            <i class="fas fa-shield-alt text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">1-Year Warranty</h6>
+                            <small class="text-muted">On all products</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <span class="text-muted">Showing 12 of 48 products</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Sort by:</span>
+                        <div class="dropdown sort-dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+                                Featured
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Featured</a></li>
+                                <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
+                                <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
+                                <li><a class="dropdown-item" href="#">Newest Arrivals</a></li>
+                                <li><a class="dropdown-item" href="#">Best Rated</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card h-100">
+                            <div class="product-img-container">
+                                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                                    class="product-img" alt="Executive Office Chair">
+                                <span class="workshop-badge badge">Lagos Workshop</span>
+                                <span class="quality-badge badge bg-success">
+                                    <i class="fas fa-check-circle me-1"></i>Quality Certified
+                                </span>
+                                <span class="material-tag badge"><i class="fas fa-tree me-1"></i>African Mahogany</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title">Executive Office Chair</h5>
+                                    <span class="badge bg-success">4.8 <i class="fas fa-star"></i></span>
+                                </div>
+                                <p class="card-text text-muted">Ergonomic design with premium upholstery</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="text-primary mb-0">₦85,000</h5>
+                                        <small class="text-success"><i class="fas fa-check-circle me-1"></i>In Stock</small>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card h-100">
+                            <div class="product-img-container">
+                                <img src="https://i.pinimg.com/1200x/c2/6d/2a/c26d2a92e319f316f5856125f8177fb0.jpg"
+                                    class="product-img" alt="6-Seater Dining Table">
+                                <span class="workshop-badge badge">Abuja Workshop</span>
+                                <span class="quality-badge badge bg-success">
+                                    <i class="fas fa-check-circle me-1"></i>Quality Certified
+                                </span>
+                                <span class="material-tag badge"><i class="fas fa-tree me-1"></i>Iroko Wood</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title">6-Seater Dining Table</h5>
+                                    <span class="badge bg-success">4.6 <i class="fas fa-star"></i></span>
+                                </div>
+                                <p class="card-text text-muted">Solid wood construction with extendable leaves</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="text-primary mb-0">₦120,000</h5>
+                                        <small class="text-warning"><i class="fas fa-exclamation-triangle me-1"></i>Low Stock</small>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card h-100">
+                            <div class="product-img-container">
+                                <img src="https://i.pinimg.com/1200x/f8/5a/7e/f85a7eba0be704cb1a49fe727304ebd2.jpg"
+                                    class="product-img" alt="King Size Bed Frame">
+                                <span class="workshop-badge badge">Port Harcourt</span>
+                                <span class="quality-badge badge bg-warning text-dark">
+                                    <i class="fas fa-exclamation-triangle me-1"></i>Pending QC
+                                </span>
+                                <span class="material-tag badge"><i class="fas fa-tree me-1"></i>Teak Wood</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title">King Size Bed Frame</h5>
+                                    <span class="badge bg-success">4.9 <i class="fas fa-star"></i></span>
+                                </div>
+                                <p class="card-text text-muted">Modern design with storage drawers</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="text-primary mb-0">₦150,000</h5>
+                                        <small class="text-danger"><i class="fas fa-clock me-1"></i>Pre-order</small>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-secondary">Notify Me</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card h-100">
+                            <div class="product-img-container">
+                                <img src="https://images.unsplash.com/photo-1583845112203-454c7cd12821?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                                    class="product-img" alt="Bookshelf">
+                                <span class="workshop-badge badge">Lagos Workshop</span>
+                                <span class="quality-badge badge bg-success">
+                                    <i class="fas fa-check-circle me-1"></i>Quality Certified
+                                </span>
+                                <span class="material-tag badge"><i class="fas fa-tree me-1"></i>African Mahogany</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title">Wall-Mounted Bookshelf</h5>
+                                    <span class="badge bg-success">4.7 <i class="fas fa-star"></i></span>
+                                </div>
+                                <p class="card-text text-muted">Space-saving design with 5 compartments</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="text-primary mb-0">₦65,000</h5>
+                                        <small class="text-success"><i class="fas fa-check-circle me-1"></i>In Stock</small>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card h-100">
+                            <div class="product-img-container">
+                                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                                    class="product-img" alt="Coffee Table">
+                                <span class="workshop-badge badge">Enugu Workshop</span>
+                                <span class="quality-badge badge bg-success">
+                                    <i class="fas fa-check-circle me-1"></i>Quality Certified
+                                </span>
+                                <span class="material-tag badge"><i class="fas fa-tree me-1"></i>Iroko Wood</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title">Modern Coffee Table</h5>
+                                    <span class="badge bg-success">4.5 <i class="fas fa-star"></i></span>
+                                </div>
+                                <p class="card-text text-muted">Glass top with wooden frame</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="text-primary mb-0">₦75,000</h5>
+                                        <small class="text-success"><i class="fas fa-check-circle me-1"></i>In Stock</small>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card h-100">
+                            <div class="product-img-container">
+                                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80"
+                                    class="product-img" alt="Sofa Set">
+                                <span class="workshop-badge badge">Kano Workshop</span>
+                                <span class="quality-badge badge bg-success">
+                                    <i class="fas fa-check-circle me-1"></i>Quality Certified
+                                </span>
+                                <span class="material-tag badge"><i class="fas fa-tree me-1"></i>Teak Wood</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title">3-Piece Sofa Set</h5>
+                                    <span class="badge bg-success">4.8 <i class="fas fa-star"></i></span>
+                                </div>
+                                <p class="card-text text-muted">Luxury fabric with wooden frame</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="text-primary mb-0">₦250,000</h5>
+                                        <small class="text-success"><i class="fas fa-check-circle me-1"></i>In Stock</small>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav aria-label="Page navigation" class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 <span style="color: #198754;">WOOD</span><span style="color: #784804;"><i>MATE</i></span>. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white me-3">Terms of Service</a>
+                    <a href="#" class="text-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./assets/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
