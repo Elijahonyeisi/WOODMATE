@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - WOODMATE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <script>
+        // Redirect to login if not logged in and not already on login or signup page
+        if (
+            !localStorage.getItem('isLoggedIn') &&
+            !window.location.pathname.endsWith('login.html') &&
+            !window.location.pathname.endsWith('signup.html')
+        ) {
+            window.location.href = './login.html';
+        }
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #fd7e14;">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="./index.html">
+                <h5 class="mb-0">
+                    <span style="color: #198754;">WOOD</span><span style="color: #784804;"><i>MATE</i></span>
+                </h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./workshop.html">Workshops</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <!-- <a href="./login.html" class="btn btn-outline-light me-2"><i class="fas fa-user"></i> Login</a> -->
+                    <a href="./carts.html" class="btn" style="background-color: #198754; color: white;">
+                        <i class="fas fa-shopping-cart"></i> Cart <span class="badge bg-dark">3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cart-header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="mb-3">Your Shopping Cart</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="./index.html" style="color: #fd7e14;">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4>3 Items in your cart</h4>
+                    <a href="#" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash me-1"></i> Clear Cart</a>
+                </div>
+
+                <!-- Cart Item 1 -->
+                <div class="cart-item">
+                    <div class="row g-0">
+                        <div class="col-md-4 position-relative">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                                class="cart-item-image" alt="Executive Office Chair">
+                            <span class="workshop-badge badge">Lagos Workshop</span>
+                            <span class="quality-badge badge bg-success">
+                                <i class="fas fa-check-circle me-1"></i>Quality Certified
+                            </span>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h5>Executive Office Chair</h5>
+                                        <p class="text-muted mb-2">Ergonomic design with premium upholstery</p>
+                                        <span class="material-badge badge"><i class="fas fa-tree me-1"></i>African
+                                            Mahogany</span>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-danger"><i
+                                                class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div class="quantity-selector">
+                                        <button class="quantity-btn">-</button>
+                                        <input type="text" class="quantity-input" value="1">
+                                        <button class="quantity-btn">+</button>
+                                    </div>
+                                    <div class="text-end">
+                                        <h5 class="mb-0">₦85,000</h5>
+                                        <small class="text-success"><i class="fas fa-check-circle me-1"></i>In
+                                            Stock</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 2 -->
+                <div class="cart-item">
+                    <div class="row g-0">
+                        <div class="col-md-4 position-relative">
+                            <img src="https://i.pinimg.com/1200x/c2/6d/2a/c26d2a92e319f316f5856125f8177fb0.jpg"
+                                class="cart-item-image" alt="6-Seater Dining Table">
+                            <span class="workshop-badge badge">Abuja Workshop</span>
+                            <span class="quality-badge badge bg-success">
+                                <i class="fas fa-check-circle me-1"></i>Quality Certified
+                            </span>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h5>6-Seater Dining Table</h5>
+                                        <p class="text-muted mb-2">Solid wood construction with extendable leaves</p>
+                                        <span class="material-badge badge"><i class="fas fa-tree me-1"></i>Iroko
+                                            Wood</span>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-danger"><i
+                                                class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div class="quantity-selector">
+                                        <button class="quantity-btn">-</button>
+                                        <input type="text" class="quantity-input" value="1">
+                                        <button class="quantity-btn">+</button>
+                                    </div>
+                                    <div class="text-end">
+                                        <h5 class="mb-0">₦120,000</h5>
+                                        <small class="text-warning"><i class="fas fa-exclamation-triangle me-1"></i>Only
+                                            2 left</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 3 -->
+                <div class="cart-item">
+                    <div class="row g-0">
+                        <div class="col-md-4 position-relative">
+                            <img src="https://i.pinimg.com/1200x/f8/5a/7e/f85a7eba0be704cb1a49fe727304ebd2.jpg"
+                                class="cart-item-image" alt="King Size Bed Frame">
+                            <span class="workshop-badge badge">Port Harcourt</span>
+                            <span class="quality-badge badge bg-warning text-dark">
+                                <i class="fas fa-exclamation-triangle me-1"></i>Pending QC
+                            </span>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h5>King Size Bed Frame</h5>
+                                        <p class="text-muted mb-2">Modern design with storage drawers</p>
+                                        <span class="material-badge badge"><i class="fas fa-tree me-1"></i>Teak
+                                            Wood</span>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-danger"><i
+                                                class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div class="quantity-selector">
+                                        <button class="quantity-btn">-</button>
+                                        <input type="text" class="quantity-input" value="1">
+                                        <button class="quantity-btn">+</button>
+                                    </div>
+                                    <div class="text-end">
+                                        <h5 class="mb-0">₦150,000</h5>
+                                        <small class="text-danger"><i class="fas fa-clock me-1"></i>Pre-order (14-21
+                                            days)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="./products.html" class="btn btn-outline-primary"><i class="fas fa-arrow-left me-1"></i>
+                        Continue
+                        Shopping</a>
+                    <!-- <a href="#" class="btn btn-primary">Update Cart</a> -->
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="summary-card">
+                    <h4 class="mb-4">Order Summary</h4>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal (3 items)</span>
+                        <span>₦355,000</span>
+                    </div>
+                    <!-- <div class="d-flex justify-content-between mb-2">
+                        <span>Delivery Fee</span>
+                        <span>₦15,000</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Tax</span>
+                        <span>₦7,100</span>
+                    </div> -->
+
+                    <!-- <div class="input-group mb-4">
+                        <input type="text" class="form-control discount-input" placeholder="Discount code">
+                        <button class="btn btn-outline-secondary discount-btn">Apply</button>
+                    </div> -->
+
+                    <div class="d-flex justify-content-between mb-3 fw-bold">
+                        <span>Total</span>
+                        <span>₦377,100</span>
+                    </div>
+
+                    <!-- <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> Free delivery on orders over ₦500,000
+                    </div> -->
+
+                    <button class="btn btn-checkout w-100 mb-3">
+                        <i class="fas fa-lock me-2"></i> Proceed to Checkout
+                    </button>
+
+                    <div class="text-center">
+                        <small class="text-muted">By placing your order, you agree to our <a href="#"
+                                style="color: #fd7e14;">Terms of Service</a></small>
+                    </div>
+                </div>
+
+                <!-- <div class="mt-4 p-3 bg-light rounded">
+                    <h6 class="mb-3"><i class="fas fa-shield-alt text-warning me-2"></i> Secure Checkout</h6>
+                    <p class="small text-muted">All transactions are secure and encrypted. We never store your payment
+                        details.</p>
+                    <div class="d-flex justify-content-between">
+                        <img src="https://via.placeholder.com/40" alt="Payment Method" class="img-fluid">
+                        <img src="https://via.placeholder.com/40" alt="Payment Method" class="img-fluid">
+                        <img src="https://via.placeholder.com/40" alt="Payment Method" class="img-fluid">
+                        <img src="https://via.placeholder.com/40" alt="Payment Method" class="img-fluid">
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 <span style="color: #198754;">WOOD</span><span
+                            style="color: #784804;"><i>MATE</i></span>. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white me-3">Terms of Service</a>
+                    <a href="#" class="text-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

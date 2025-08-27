@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - WOODMATE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-brand h5 {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .login-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            overflow: hidden;
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #fd7e14 0%, #ff9900 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .login-body {
+            padding: 2rem;
+        }
+
+        .btn-login {
+            background-color: #198754;
+            color: white;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #0f6844;
+            transform: translateY(-2px);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: #6c757d;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .divider::before {
+            margin-right: 0.5rem;
+        }
+
+        .divider::after {
+            margin-left: 0.5rem;
+        }
+
+        .form-control:focus {
+            border-color: #fd7e14;
+            box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.25);
+        }
+
+        .form-check-input:checked {
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+        }
+
+        .alert {
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .password-toggle {
+            cursor: pointer;
+            position: absolute;
+            right: 12px;
+            top: 38px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #fd7e14;">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="./index.html">
+                <h5 class="mb-0">
+                    <span style="color: #198754;">WOOD</span><span style="color: #784804;"><i>MATE</i></span>
+                </h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./workshop.html">Workshops</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="./login.html" class="btn btn-outline-light me-2"><i class="fas fa-user"></i> Login</a>
+                    <a href="./carts.html" class="btn" style="background-color: #198754; color: white;">
+                        <i class="fas fa-shopping-cart"></i> Cart <span class="badge bg-dark">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h3 class="login-brand">
+                    <span style="color: #198754;">WOOD</span><span style="color: #784804;"><i>MATE</i></span>
+                </h3>
+                <p class="mb-0">Sign in to your account</p>
+            </div>
+            
+            <div class="login-body">
+                <div id="loginAlert" class="alert alert-danger d-none" role="alert"></div>
+                
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        <div class="invalid-feedback" id="emailError"></div>
+                    </div>
+                    <div class="mb-3 position-relative">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                        <span class="password-toggle" id="passwordToggle">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                        <div class="invalid-feedback" id="passwordError"></div>
+                        <div class="text-end mt-2">
+                            <a href="#" class="text-decoration-none" style="color: #fd7e14;">Forgot password?</a>
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember">
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-login w-100 py-2" id="loginButton">
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        Sign In
+                    </button>
+                    
+                    <div class="divider">or</div>
+                    
+                    <!-- Social login buttons (commented out as in original) -->
+                    <!-- <div class="social-login">
+                        <a href="#" class="btn btn-google">
+                            <i class="fab fa-google"></i> Sign in with Google
+                        </a>
+                        <a href="#" class="btn btn-facebook">
+                            <i class="fab fa-facebook-f"></i> Sign in with Facebook
+                        </a>
+                    </div> -->
+                </form>
+            </div>
+            
+            <div class="login-footer text-center py-3" style="background-color: #f8f9fa;">
+                <p class="mb-0">Don't have an account? <a href="./signup.html" style="color: #fd7e14;" class="text-decoration-none fw-bold">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 <span style="color: #198754;">WOOD</span><span style="color: #784804;"><i>MATE</i></span>. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white me-3">Terms of Service</a>
+                    <a href="#" class="text-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const loginForm = document.getElementById('loginForm');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const passwordToggle = document.getElementById('passwordToggle');
+            const loginButton = document.getElementById('loginButton');
+            const loginAlert = document.getElementById('loginAlert');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            
+            // Toggle password visibility
+            passwordToggle.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+            
+            // Form validation
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            function validatePassword(password) {
+                return password.length >= 6;
+            }
+            
+            function showError(input, errorElement, message) {
+                input.classList.add('is-invalid');
+                errorElement.textContent = message;
+            }
+            
+            function clearError(input, errorElement) {
+                input.classList.remove('is-invalid');
+                errorElement.textContent = '';
+            }
+            
+            // Real-time validation
+            emailInput.addEventListener('input', function() {
+                if (validateEmail(this.value)) {
+                    clearError(this, emailError);
+                }
+            });
+            
+            passwordInput.addEventListener('input', function() {
+                if (validatePassword(this.value)) {
+                    clearError(this, passwordError);
+                }
+            });
+            
+            // Form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Validate email
+                if (!validateEmail(emailInput.value)) {
+                    showError(emailInput, emailError, 'Please enter a valid email address');
+                    isValid = false;
+                }
+                
+                // Validate password
+                if (!validatePassword(passwordInput.value)) {
+                    showError(passwordInput, passwordError, 'Password must be at least 6 characters');
+                    isValid = false;
+                }
+                
+                if (!isValid) {
+                    loginAlert.classList.remove('d-none');
+                    loginAlert.textContent = 'Please fix the errors above';
+                    return;
+                }
+                
+                // Show loading state
+                const spinner = loginButton.querySelector('.spinner-border');
+                spinner.classList.remove('d-none');
+                loginButton.disabled = true;
+                
+                // Check against stored users
+                setTimeout(() => {
+                    const storedUsers = JSON.parse(localStorage.getItem('woodmateUsers') || '[]');
+                    const user = storedUsers.find(u => u.email === emailInput.value);
+                    
+                    if (user && atob(user.password) === passwordInput.value) {
+                        // Successful login
+                        loginAlert.classList.add('d-none');
+                        
+                        // Store login state
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('currentUser', JSON.stringify({
+                            name: user.name,
+                            email: user.email
+                        }));
+                        
+                        if (document.getElementById('remember').checked) {
+                            localStorage.setItem('rememberMe', 'true');
+                        }
+                        
+                        // Redirect to home page
+                        window.location.href = './index.html';
+                    } else {
+                        // Failed login
+                        loginAlert.classList.remove('d-none');
+                        loginAlert.textContent = 'Invalid email or password.';
+                        spinner.classList.add('d-none');
+                        loginButton.disabled = false;
+                    }
+                }, 1000);
+            });
+            
+            // Check if user was previously logged in
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                // In a real app, you would verify the session is still valid
+                console.log('User is logged in');
+            }
+            
+            // Demo account suggestion for first-time visitors
+            const hasVisitedBefore = localStorage.getItem('hasVisitedLogin');
+            if (!hasVisitedBefore) {
+                localStorage.setItem('hasVisitedLogin', 'true');
+                
+                // Check if there are any users in the system
+                const storedUsers = JSON.parse(localStorage.getItem('woodmateUsers') || '[]');
+                if (storedUsers.length === 0) {
+                    loginAlert.classList.remove('d-none');
+                    loginAlert.classList.remove('alert-danger');
+                    loginAlert.classList.add('alert-info');
+                    loginAlert.textContent = 'No accounts found. Please sign up first or use demo@woodmate.com / password';
+                    
+                    // Pre-fill demo credentials
+                    emailInput.value = 'demo@woodmate.com';
+                    passwordInput.value = 'password';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

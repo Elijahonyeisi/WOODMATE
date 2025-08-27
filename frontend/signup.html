@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - WOODMATE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-brand h5 {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .login-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+        }
+
+        .login-header {
+            background: #fd7e14;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .login-body {
+            padding: 2rem;
+        }
+
+        .btn-signup {
+            background-color: #fd7e14;
+            color: white;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-signup:hover {
+            background-color: #e76f10;
+            transform: translateY(-2px);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: #6c757d;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .divider::before {
+            margin-right: 0.5rem;
+        }
+
+        .divider::after {
+            margin-left: 0.5rem;
+        }
+
+        .form-control:focus {
+            border-color: #fd7e14;
+            box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.25);
+        }
+
+        .form-check-input:checked {
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+        }
+
+        .alert {
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .password-toggle {
+            cursor: pointer;
+            position: absolute;
+            right: 12px;
+            top: 38px;
+            color: #6c757d;
+        }
+
+        .progress {
+            height: 6px;
+            margin-top: 5px;
+        }
+
+        .password-strength-weak .progress-bar {
+            background-color: #dc3545;
+        }
+
+        .password-strength-medium .progress-bar {
+            background-color: #fd7e14;
+        }
+
+        .password-strength-strong .progress-bar {
+            background-color: #198754;
+        }
+
+        .password-feedback {
+            font-size: 0.875rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #fd7e14;">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="./index.html">
+                <h5 class="mb-0">
+                    <span style="color: #198754;">WOOD</span><span style="color: #784804;"><i>MATE</i></span>
+                </h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./workshop.html">Workshops</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="./login.html" class="btn btn-outline-light me-2"><i class="fas fa-user"></i> Login</a>
+                    <a href="./carts.html" class="btn" style="background-color: #198754; color: white;">
+                        <i class="fas fa-shopping-cart"></i> Cart <span class="badge bg-dark">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h3 class="login-brand">
+                    <span style="color: #fff;">WOOD</span><span style="color: #f8f9fa;"><i>MATE</i></span>
+                </h3>
+                <p class="mb-0">Create a new account</p>
+            </div>
+
+            <div class="login-body">
+                <div id="signupAlert" class="alert d-none" role="alert"></div>
+
+                <form id="signupForm">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
+                            required>
+                        <div class="invalid-feedback" id="fullNameError"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        <div class="invalid-feedback" id="emailError"></div>
+                    </div>
+                    <div class="mb-3 position-relative">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Create a password"
+                            required>
+                        <span class="password-toggle" id="passwordToggle">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                        <div class="progress mt-2 d-none" id="passwordStrengthBar">
+                            <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <div class="password-feedback" id="passwordFeedback"></div>
+                        <div class="invalid-feedback" id="passwordError"></div>
+                    </div>
+                    <div class="mb-3 position-relative">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword"
+                            placeholder="Confirm your password" required>
+                        <span class="password-toggle" id="confirmPasswordToggle">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                        <div class="invalid-feedback" id="confirmPasswordError"></div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="terms" required>
+                        <label class="form-check-label" for="terms">I agree to the <a href="#"
+                                style="color: #fd7e14;">Terms of Service</a> and <a href="#"
+                                style="color: #fd7e14;">Privacy Policy</a></label>
+                        <div class="invalid-feedback" id="termsError">You must agree to the terms and conditions</div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="newsletter" checked>
+                        <label class="form-check-label" for="newsletter">Send me product updates and woodworking
+                            tips</label>
+                    </div>
+                    <button type="submit" class="btn btn-signup w-100 py-2" id="signupButton">
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        Create Account
+                    </button>
+
+                    <div class="divider">or</div>
+
+                    <!-- Social signup buttons (commented out as in original) -->
+                    <!-- <div class="social-login">
+                        <a href="#" class="btn btn-google">
+                            <i class="fab fa-google"></i> Sign up with Google
+                        </a>
+                        <a href="#" class="btn btn-facebook">
+                            <i class="fab fa-facebook-f"></i> Sign up with Facebook
+                        </a>
+                    </div> -->
+                </form>
+            </div>
+
+            <div class="login-footer text-center py-3" style="background-color: #f8f9fa;">
+                <p class="mb-0">Already have an account? <a href="./login.html" style="color: #fd7e14;"
+                        class="text-decoration-none fw-bold">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 <span style="color: #198754;">WOOD</span><span
+                            style="color: #784804;"><i>MATE</i></span>. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white me-3">Terms of Service</a>
+                    <a href="#" class="text-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM Elements
+            const signupForm = document.getElementById('signupForm');
+            const fullNameInput = document.getElementById('fullName');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const passwordToggle = document.getElementById('passwordToggle');
+            const confirmPasswordToggle = document.getElementById('confirmPasswordToggle');
+            const signupButton = document.getElementById('signupButton');
+            const signupAlert = document.getElementById('signupAlert');
+            const fullNameError = document.getElementById('fullNameError');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+            const termsError = document.getElementById('termsError');
+            const passwordStrengthBar = document.getElementById('passwordStrengthBar');
+            const passwordFeedback = document.getElementById('passwordFeedback');
+
+            // Toggle password visibility
+            passwordToggle.addEventListener('click', function () {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            confirmPasswordToggle.addEventListener('click', function () {
+                const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPasswordInput.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            // Form validation
+            function validateFullName(name) {
+                return name.trim().length >= 3 && name.trim().indexOf(' ') > 0;
+            }
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            function validatePassword(password) {
+                return password.length >= 8;
+            }
+
+            function checkPasswordStrength(password) {
+                let strength = 0;
+
+                // Length check
+                if (password.length >= 8) strength += 1;
+
+                // Contains lowercase
+                if (/[a-z]/.test(password)) strength += 1;
+
+                // Contains uppercase
+                if (/[A-Z]/.test(password)) strength += 1;
+
+                // Contains numbers
+                if (/[0-9]/.test(password)) strength += 1;
+
+                // Contains special characters
+                if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+
+                return strength;
+            }
+
+            function updatePasswordStrengthUI(password) {
+                if (password.length === 0) {
+                    passwordStrengthBar.classList.add('d-none');
+                    passwordFeedback.textContent = '';
+                    return;
+                }
+
+                const strength = checkPasswordStrength(password);
+                passwordStrengthBar.classList.remove('d-none');
+
+                let width = 0;
+                let feedback = '';
+                let strengthClass = '';
+
+                if (strength <= 2) {
+                    width = 33;
+                    feedback = 'Weak password';
+                    strengthClass = 'password-strength-weak';
+                } else if (strength <= 4) {
+                    width = 66;
+                    feedback = 'Medium strength password';
+                    strengthClass = 'password-strength-medium';
+                } else {
+                    width = 100;
+                    feedback = 'Strong password';
+                    strengthClass = 'password-strength-strong';
+                }
+
+                passwordStrengthBar.querySelector('.progress-bar').style.width = `${width}%`;
+                passwordFeedback.textContent = feedback;
+                passwordStrengthBar.className = `progress mt-2 ${strengthClass}`;
+            }
+
+            function showError(input, errorElement, message) {
+                input.classList.add('is-invalid');
+                errorElement.textContent = message;
+            }
+
+            function clearError(input, errorElement) {
+                input.classList.remove('is-invalid');
+                errorElement.textContent = '';
+            }
+
+            // Real-time validation
+            fullNameInput.addEventListener('input', function () {
+                if (validateFullName(this.value)) {
+                    clearError(this, fullNameError);
+                }
+            });
+
+            emailInput.addEventListener('input', function () {
+                if (validateEmail(this.value)) {
+                    clearError(this, emailError);
+                }
+            });
+
+            passwordInput.addEventListener('input', function () {
+                updatePasswordStrengthUI(this.value);
+
+                if (validatePassword(this.value)) {
+                    clearError(this, passwordError);
+
+                    // Also validate confirmation if there's a value
+                    if (confirmPasswordInput.value && this.value !== confirmPasswordInput.value) {
+                        showError(confirmPasswordInput, confirmPasswordError, 'Passwords do not match');
+                    } else {
+                        clearError(confirmPasswordInput, confirmPasswordError);
+                    }
+                }
+            });
+
+            confirmPasswordInput.addEventListener('input', function () {
+                if (this.value === passwordInput.value) {
+                    clearError(this, confirmPasswordError);
+                }
+            });
+
+            // Form submission
+            signupForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                let isValid = true;
+
+                // Validate full name
+                if (!validateFullName(fullNameInput.value)) {
+                    showError(fullNameInput, fullNameError, 'Please enter your full name (first and last)');
+                    isValid = false;
+                }
+
+                // Validate email
+                if (!validateEmail(emailInput.value)) {
+                    showError(emailInput, emailError, 'Please enter a valid email address');
+                    isValid = false;
+                }
+
+                // Validate password
+                if (!validatePassword(passwordInput.value)) {
+                    showError(passwordInput, passwordError, 'Password must be at least 8 characters');
+                    isValid = false;
+                }
+
+                // Validate password confirmation
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    showError(confirmPasswordInput, confirmPasswordError, 'Passwords do not match');
+                    isValid = false;
+                }
+
+                // Validate terms
+                if (!document.getElementById('terms').checked) {
+                    document.getElementById('terms').classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('terms').classList.remove('is-invalid');
+                }
+
+                if (!isValid) {
+                    signupAlert.classList.remove('d-none', 'alert-success');
+                    signupAlert.classList.add('alert-danger');
+                    signupAlert.textContent = 'Please fix the errors above';
+                    return;
+                }
+
+                // Show loading state
+                const spinner = signupButton.querySelector('.spinner-border');
+                spinner.classList.remove('d-none');
+                signupButton.disabled = true;
+
+                // Simulate API call (replace with actual registration)
+                setTimeout(() => {
+                    // This is a simulation - in a real app, you would call your registration API
+
+                    // Check if email is already registered (simulation)
+                    const existingUsers = JSON.parse(localStorage.getItem('woodmateUsers') || '[]');
+                    const userExists = existingUsers.some(user => user.email === emailInput.value);
+
+                    if (userExists) {
+                        // Email already registered
+                        signupAlert.classList.remove('d-none', 'alert-success');
+                        signupAlert.classList.add('alert-danger');
+                        signupAlert.textContent = 'This email is already registered';
+                        spinner.classList.add('d-none');
+                        signupButton.disabled = false;
+                    } else {
+                        // Successful registration
+                        signupAlert.classList.remove('d-none', 'alert-danger');
+                        signupAlert.classList.add('alert-success');
+                        signupAlert.textContent = 'Account created successfully! Redirecting to login...';
+
+                        // Store user data (in a real app, this would be handled by the backend)
+                        const newUser = {
+                            name: fullNameInput.value,
+                            email: emailInput.value,
+                            password: btoa(passwordInput.value), // Simple encoding, not secure for production
+                            newsletter: document.getElementById('newsletter').checked
+                        };
+
+                        existingUsers.push(newUser);
+                        localStorage.setItem('woodmateUsers', JSON.stringify(existingUsers));
+
+                        // Redirect to login page after a delay
+                        setTimeout(() => {
+                            window.location.href = './login.html';
+                        }, 2000);
+                    }
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>
